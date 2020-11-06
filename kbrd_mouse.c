@@ -109,14 +109,14 @@ Boolean_t squareTest(uint8_t* MouseOrKeybuffer)
 	return flag;
 }
 
-Boolean_t openPaint(uint8_t* MouseOrKeybuffer)
+Boolean_t openPinta(uint8_t* MouseOrKeybuffer)
 {
 	static Boolean_t flag = FALSE;
 	switch (state_g)
 	{
 	case STATE_0:
 		/* WINDOWS + R*/
-		MouseOrKeybuffer[1] = MODIFERKEYS_LEFT_CTRL;
+		MouseOrKeybuffer[1] = MODIFERKEYS_LEFT_CTRL | MODIFERKEYS_LEFT_ALT;
 		MouseOrKeybuffer[3] = KEY_T;
 		delay(KEYBOARD_DELAY);
 		break;
@@ -235,12 +235,23 @@ Boolean_t drawFigure(uint8_t* MouseOrKeybuffer)
 		MouseOrKeybuffer[1] = 0U;
 		MouseOrKeybuffer[2] = 0U;
 		MouseOrKeybuffer[3] = 0U;
+		state_g++;
+		delay(MOUSE_DELAY);
+		break;
+	case STATE_6:
+		/* Move up */
+		MouseOrKeybuffer[1] = 1U;
+		MouseOrKeybuffer[2] = 0U;
+		MouseOrKeybuffer[3] = (uint8_t) (-6);
+		g_x--;
+		if (g_x < 2U) {
+			state_g++;
+		}
+		delay(MOUSE_DELAY);
+		break;
+	default:
 		state_g = STATE_0;
 		flag = TRUE;
-		delay(MOUSE_DELAY);
-	break;
-	default:
-
 		break;
 	}
 
@@ -254,7 +265,7 @@ Boolean_t openNotepad(uint8_t* MouseOrKeybuffer)
 	switch (state_g) {
 	case STATE_0:
 		/* WINDOWS + R*/
-		MouseOrKeybuffer[1] = MODIFERKEYS_LEFT_CTRL;
+		MouseOrKeybuffer[1] = MODIFERKEYS_LEFT_CTRL | MODIFERKEYS_LEFT_ALT;
 		MouseOrKeybuffer[3] = KEY_T;
 		delay(KEYBOARD_DELAY);
 
@@ -406,7 +417,7 @@ Boolean_t moveMouse(uint8_t* MouseOrKeybuffer, direction_t direction)
 			case STATE_0:
 				/* Move right */
 				MouseOrKeybuffer[1] = 0U;
-				MouseOrKeybuffer[2] = (uint8_t) (-3);
+				MouseOrKeybuffer[2] = (uint8_t) (-4);
 				MouseOrKeybuffer[3] = 0U;
 				g_x--;
 				if (g_x < 2U) {
@@ -449,7 +460,7 @@ Boolean_t moveMouse(uint8_t* MouseOrKeybuffer, direction_t direction)
 			case STATE_0:
 				/* Move left */
 				MouseOrKeybuffer[1] = 0U;
-				MouseOrKeybuffer[2] = 3U;
+				MouseOrKeybuffer[2] = 4U;
 				MouseOrKeybuffer[3] = 0U;
 
 				g_x++;
