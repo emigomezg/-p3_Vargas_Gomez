@@ -1,12 +1,12 @@
 /*
- * mouse_and_keyboard.h
+ * kbrd_mouse_task.h
  *
- *  Created on: Nov 2, 2020
- *      Author: Emiliano
+ *  Created on: Apr 25, 2020
+ *      Author: armando
  */
 
-#ifndef MOUSE_AND_KEYBOARD_H_
-#define MOUSE_AND_KEYBOARD_H_
+#ifndef KBRD_MOUSE_H_
+#define KBRD_MOUSE_H_
 
 #include "stdint.h"
 
@@ -268,9 +268,9 @@ typedef enum{
 
 Boolean_t squareTest(uint8_t* MouseOrKeybuffer);
 
-Boolean_t openMSPaint(uint8_t* MouseOrKeybuffer);
+Boolean_t openPaint(uint8_t* MouseOrKeybuffer);
 
-Boolean_t draw4(uint8_t* MouseOrKeybuffer);
+Boolean_t drawFigure(uint8_t* MouseOrKeybuffer);
 
 Boolean_t openNotepad(uint8_t* MouseOrKeybuffer);
 
@@ -282,6 +282,6 @@ Boolean_t copyText(uint8_t* MouseOrKeybuffer);
 
 Boolean_t pasteText(uint8_t* MouseOrKeybuffer);
 
-#endif /* MOUSE_AND_KEYBOARD_H_ */
+#endif /* KBRD_MOUSE_H_ */
 
 

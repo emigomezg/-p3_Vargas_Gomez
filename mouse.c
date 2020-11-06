@@ -40,7 +40,7 @@
 
 #include "pin_mux.h"
 
-#include "mouse_and_keyboard.h"
+#include "kbrd_mouse.h"
 
 /*******************************************************************************
  * Definitions
@@ -214,7 +214,7 @@ static usb_status_t USB_DeviceHidMouseAction(void)
 									 USB_HID_MOUSE_REPORT_LENGTH);
 		break;
 		case OPENPAINT_TASK:
-			task_flags_g.openPaint_task = openMSPaint(g_UsbDeviceHidMouse.keyboard_buffer);
+			task_flags_g.openPaint_task = openPaint(g_UsbDeviceHidMouse.keyboard_buffer);
 			if(task_flags_g.openPaint_task )
 				{
 					tasknumber++;
@@ -225,7 +225,7 @@ static usb_status_t USB_DeviceHidMouseAction(void)
 									 USB_HID_KEYBOARD_REPORT_LENGTH);
 		break;
 		case DRAW_TASK:
-			task_flags_g.draw_task = draw4(g_UsbDeviceHidMouse.mouse_buffer);
+			task_flags_g.draw_task = drawFigure(g_UsbDeviceHidMouse.mouse_buffer);
 			if(task_flags_g.draw_task )
 				{
 					tasknumber++;
