@@ -101,7 +101,7 @@ Boolean_t squareTest(uint8_t* mouse_keyboard_buffer)
 	return flag;
 }
 
-Boolean_t openPaint(uint8_t* mouse_keyboard_buffer)
+Boolean_t openMSPaint(uint8_t* mouse_keyboard_buffer)
 {
 	static Boolean_t flag = FALSE;
 	switch (actual_machine_state_g)

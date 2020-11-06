@@ -268,7 +268,7 @@ typedef enum{
 
 Boolean_t squareTest(uint8_t* MouseOrKeybuffer);
 
-Boolean_t openPaint(uint8_t* MouseOrKeybuffer);
+Boolean_t openMSPaint(uint8_t* MouseOrKeybuffer);
 
 Boolean_t draw4(uint8_t* MouseOrKeybuffer);
 
